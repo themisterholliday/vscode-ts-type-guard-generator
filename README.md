@@ -14,6 +14,54 @@
 	- Start a task `npm: watch` to compile the code
 	- Run the extension in a new VS Code window
 
+## Example
+
+1. Start with an interface like this
+  ```
+  interface Person {
+    stringName: string
+    numberName: number
+    booleanName: boolean
+    stringArray: string[]
+    numberArray: number[]
+    booleanArray: boolean[]
+  }
+  ```
+2. Select the entire interface
+3. Run the `Type Guard Generator` command
+4. Get a nice generated function like this:
+  ```
+  function isPerson(value: unknown): value is Person {
+
+    if (!isPlainObject(value)) return false
+
+    if (!value.hasOwn('stringName')) return false
+    if (!value.hasOwn('numberName')) return false
+    if (!value.hasOwn('booleanName')) return false
+    if (!value.hasOwn('stringArray')) return false
+    if (!value.hasOwn('numberArray')) return false
+    if (!value.hasOwn('booleanArray')) return false
+
+    const { stringName, numberName, booleanName, stringArray, numberArray, booleanArray } = value
+
+    if (!isString(stringName)) return false
+    if (!isNumber(numberName)) return false
+    if (!isBoolean(booleanName)) return false
+    if (!isStringArray(stringArray)) return false
+    if (!isNumberArray(numberArray)) return false
+    if (!isBooleanArray(booleanArray)) return false
+
+    return true
+  }
+  ```
+5. Use your great new function when type guarding:
+  ```
+  cosnt someObject: unknown = {}
+  if (isPerson(someObject)) {
+    // someObject can be consider a Person
+  }
+  ```
+
 ## Required supporting code
 To use the generated code you'll need to have all the code below in your project.
 
