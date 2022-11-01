@@ -1,8 +1,8 @@
 {
-    "name": "type_guard_generator",
+    "name": "type-guard-generator",
     "displayName": "Type Guard Generator",
     "description": "Extension to generate custom type guards for interfaces",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -16,13 +16,13 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.type_guard_generator"
+        "onCommand:extension.type-guard-generator"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.type_guard_generator",
+                "command": "extension.type-guard-generator",
                 "title": "Type Guard Generator"
             }
         ]

@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { buildFullTypeGuardFunction } from './type-guard-generator';
 
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = vscode.commands.registerCommand('extension.type_guard_generator', function () {
+	const disposable = vscode.commands.registerCommand('extension.type-guard-generator', function () {
 		// Get the active text editor
 		const editor = vscode.window.activeTextEditor;
 

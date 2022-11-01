@@ -1,4 +1,13 @@
-# Running
+# TS Type Guard Generator
+
+## Usage
+- Select the entirety of an interface defintiion.
+- Open your command palette
+- Run the command `Type Guard Generator`
+- If everything was okay, the command should generate code at the bottom of your file.
+- Import the proper functions
+
+## Running
 
 - Run `npm install` in terminal to install dependencies
 - Run the `Run Extension` target in the Debug View. This will:
@@ -6,6 +15,7 @@
 	- Run the extension in a new VS Code window
 
 ## Required supporting code
+To use the generated code you'll need to have all the code below in your project.
 
 type-guard.util.ts
 ```
@@ -59,4 +69,17 @@ export function isNumberArray(value: unknown): value is number[] {
   }
   return true
 }
+```
+
+import statements
+```
+import {
+  isPlainObject,
+  isBoolean,
+  isString,
+  isNumber,
+  isBooleanArray,
+  isStringArray,
+  isNumberArray,
+} from "./type-guard.util"
 ```
